@@ -13,8 +13,8 @@ RUN apt-get update \
 
 # Install sickle
 RUN git clone https://github.com/najoshi/sickle.git \
-    && git checkout tags/v1.33 \
     && cd sickle \
+    && git checkout tags/v1.33 \
     && make \
     && cd .. \
     && cp sickle/sickle /usr/bin \
