@@ -11,10 +11,10 @@ RUN apt-get update && apt-get install -y \
 RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
   && pip install msgpack
 
-RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2
+RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2 \
   && cd /src/metaphlan2 \
   && hg up 2.7.63 \
-  && ./metaphlan2.py --install
+  && ./metaphlan2.py --install \
   cd /
 
 ENV PATH=$PATH:/src/metaphlan2
