@@ -1,14 +1,20 @@
 FROM debian:stretch
 
-ENV TOOLNAME metaphlan2 
+RUN apt-get update && apt-get install -y \
+    python-numpy \
+    python-pandas \
+    python-pip \
+    python-biopython \
+    bowtie2 \
+    mercurial 
 
-ENV PACKAGES python-numpy python-biom-format python-biopython bowtie2 wget unzip make xz-utils ca-certificates mercurial python-yaml libsys-hostname-long-perl
-RUN apt-get update -y 
-RUN apt-get install -y --no-install-recommends ${PACKAGES}
+RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
+  && pip install msgpack
 
-ENV PREFIX /biobox/
-RUN mkdir -p ${PREFIX}/src/ ${PREFIX}/bin/ ${PREFIX}/lib/ ${PREFIX}/share/ 
-ENV PATH=${PREFIX}/bin:${PREFIX}/src/${TOOLNAME}:${PATH}
+RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2
+  && cd /src/metaphlan2 \
+  && hg up 2.7.63 \
+  && ./metaphlan2.py --install
+  cd /
 
-RUN hg clone https://bitbucket.org/biobakery/metaphlan2 ${PREFIX}/src/${TOOLNAME}
-RUN metaphlan2.py --install
+ENV PATH=$PATH:/src/metaphlan2
