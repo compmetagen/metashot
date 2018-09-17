@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     python-pandas \
     python-pip \
     python-biopython \
+    python-biom-format \
     bowtie2 \
     mercurial 
 
