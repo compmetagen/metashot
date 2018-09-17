@@ -16,5 +16,5 @@ RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2 \
   && hg up 2.7.63 \
   && ./metaphlan2.py --install \
   && cd /
-
-ENV PATH=$PATH:/src/metaphlan2
+  
+  ENV PATH=$PATH:/src/metaphlan2
