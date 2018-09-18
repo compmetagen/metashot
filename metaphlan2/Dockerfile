@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     python-biopython \
     python-biom-format \
     bowtie2 \
-    mercurial 
+    mercurial
 
 RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
   && pip install msgpack
@@ -18,4 +18,4 @@ RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2 \
   && ./metaphlan2.py --install \
   && cd /
   
-ENV PATH=$PATH:/src/metaphlan2
+ENV PATH=$PATH:/src/metaphlan2:/src/metaphlan2/utils:/src/metaphlan2/utils/hclust2
