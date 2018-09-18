@@ -18,6 +18,9 @@ RUN hg clone https://bitbucket.org/biobakery/metaphlan2 /src/metaphlan2 \
   && ./metaphlan2.py --install \
   && cd /
 
+RUN apt-get install -y \
+  wget \
+
 RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaphlan2/merge_metaphlan_tables.py \
   && cp merge_metaphlan_tables.py /src/metaphlan2/utils \
   && chmod +x /src/metaphlan2/utils/merge_metaphlan_tables.py
