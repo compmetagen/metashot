@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     python-biopython \
     python-biom-format \
     bowtie2 \
-    samtools \
+    samtools=0.1.19 \
     muscle \
     bcftools \
     ncbi-blast+ \
