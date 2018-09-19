@@ -22,10 +22,10 @@ RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
 
 RUN wget http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools-0.1.19.tar.bz2 \
   && tar -xvjf ./sam/samtools-0.1.19.tar.bz2 \
-  && wget wget http://www.zlib.net/zlib-1.2.11.tar.gz \
+  && wget http://www.zlib.net/zlib-1.2.11.tar.gz \
   && tar -xvzf zlib-1.2.11.tar.gz \
   && cd zlib-1.2.11 \
-  && ./configure --prefix=./
+  && ./configure --prefix=. \
   && cp ./zlib.h ./samtools-0.1.19 \
   && cp ./zconf.h ./samtools-0.1.19 \
   && cd ./samtools-0.1.19 \
