@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:jessie
 
 RUN apt-get update && apt-get install -y \
     python-numpy \
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     python-biopython \
     python-biom-format \
     bowtie2 \
-    samtools=0.1.19 \
+    samtools \
     muscle \
     bcftools \
     ncbi-blast+ \
