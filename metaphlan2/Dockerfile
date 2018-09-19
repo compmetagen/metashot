@@ -21,9 +21,9 @@ RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
   && pip install pysam
 
 RUN wget http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools-0.1.19.tar.bz2 \
-  && tar -xvjf ./sam/samtools-0.1.19.tar.bz2 \
+  && tar -xvjf ./samtools-0.1.19.tar.bz2 \
   && wget http://www.zlib.net/zlib-1.2.11.tar.gz \
-  && tar -xvzf zlib-1.2.11.tar.gz \
+  && tar -xvzf ./zlib-1.2.11.tar.gz \
   && cd zlib-1.2.11 \
   && ./configure --prefix=. \
   && cp ./zlib.h ./samtools-0.1.19 \
