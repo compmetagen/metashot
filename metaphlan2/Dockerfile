@@ -28,7 +28,7 @@ RUN wget http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools
   && ./configure --prefix=. \
   && cp ./zlib.h ./samtools-0.1.19 \
   && cp ./zconf.h ./samtools-0.1.19 \
-  && cd ./samtools-0.1.19 \
+  && cd /samtools-0.1.19 \
   && make \
   && cd /
 
