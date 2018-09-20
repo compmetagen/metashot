@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     raxml \
     wget \
     mercurial \
-    build-essentials \
+    build-essential \
     libncurses5-dev
 
 RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
