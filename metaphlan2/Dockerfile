@@ -18,9 +18,9 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     zlib1g-dev
 
-RUN python -m pip install --upgrade pip && pip install 'setuptools >=14.0' \
+RUN python -m pip install 'setuptools >=14.0' \
   && pip install msgpack \
-  && pip install pysam
+  && pip install pysam \
 
 RUN wget http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools-0.1.19.tar.bz2 \
   && tar -xvjf ./samtools-0.1.19.tar.bz2 \
