@@ -13,7 +13,5 @@ ENV work_dir="/NGStools/bowtie2-2.3.4.3"
 RUN wget https://https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.4.3/bowtie2-2.3.4.3-linux-x86_64.zip \
     unzip bowtie2-2.3.4.3-linux-x86_64.zip \
     rm -rf bowtie2-2.3.4.3-linux-x86_64.zip
-    
-ENV PATH="${work_dir}:${PATH}"
 
-RUN bowtie2 --help
+ENV PATH="${work_dir}:${PATH}"
