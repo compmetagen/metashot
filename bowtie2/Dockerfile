@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /NGStools/
 ENV work_dir="/NGStools/bowtie2-2.3.4.3"
 
-RUN wget https://https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.4.3/bowtie2-2.3.4.3-linux-x86_64.zip \
+RUN wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.4.3/bowtie2-2.3.4.3-linux-x86_64.zip \
     unzip bowtie2-2.3.4.3-linux-x86_64.zip \
     rm -rf bowtie2-2.3.4.3-linux-x86_64.zip
 
