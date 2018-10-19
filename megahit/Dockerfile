@@ -17,4 +17,4 @@ RUN mkdir ${MEGAHIT_DIR} \
     tar xzf - --directory . --strip-components=1 \
     && make
 
-ENV PATH=$PATH:/${MEGAHIT_DIR}
+ENV PATH=$PATH:${MEGAHIT_DIR}
