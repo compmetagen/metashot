@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     zlib1g \
     zlib1g-dev \
     ncbi-blast+ \
-    mafft
+    mafft \
   && rm -rf /var/lib/apt/lists/*
 
 # HMMER v3.2.1
