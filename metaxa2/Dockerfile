@@ -52,4 +52,5 @@ WORKDIR Metaxa2_2.2
 RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaxa2/install_metaxa2 \
   && chmod +x install_metaxa2.1 \
   && ./install_metaxa2.1
+WORKDIR /
 ENV PATH=$PATH:/root/bin
