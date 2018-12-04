@@ -45,3 +45,9 @@ RUN ./autogen.sh && ./configure && make && make install
 WORKDIR /
 RUN rm -rf /tmp/v2.9.1.tar.gz /tmp/vsearch-2.9.1
 
+RUN wget http://microbiology.se/sw/Metaxa2_2.2.tar.gz \
+  && tar -zxvf Metaxa2_2.2.tar.gz
+WORKDIR Metaxa2_2.2
+RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaxa2/install_metaxa2 \
+  && chmod +x install_metaxa2 \
+  && ./install_metaxa2
