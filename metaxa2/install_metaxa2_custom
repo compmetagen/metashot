@@ -6,38 +6,11 @@ print "-----------------\n";
 
 $homeDir = $ENV{"HOME"};
 
-# print "Do you have superuser privileges? [yes/no, default = no]\n";
-# chomp($su = <STDIN>);
-# if (substr($su,0,1) eq "y") {
-#   $su = 1;
-# } else {
-#   $su = 0;
-# }
 $su = 0;
 
-# if ($su == 1) {
-#   print "Where do you want to install Metaxa2? [default = /usr/local/bin/]\n";
-#   chomp($bindir = <STDIN>);
-#   if ($bindir eq "") {
-#     $bindir = "/usr/local/bin/";
-#   }
-# } else {
-#   print "Where do you want to install Metaxa2? [default = $homeDir/bin/]\n";
-#   chomp($bindir = <STDIN>);
-#   if ($bindir eq "") {
-#     $bindir = "$homeDir/bin/";
-#   }
-# }
 $bindir = "$homeDir/bin/";
 $bindir =~ s/\~/$homeDir/;
 
-# print "Do you want to add $bindir to your PATH? [yes/no, default = yes]\n";
-# chomp($su = <STDIN>);
-# if (substr($su,0,1) eq "n") {
-#   $pathWrite = 0;
-# } else {
-#   $pathWrite = 1;
-# }
 $pathWrite = 1;
 
 

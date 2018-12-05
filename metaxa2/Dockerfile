@@ -50,9 +50,9 @@ RUN wget http://microbiology.se/sw/Metaxa2_2.2.tar.gz \
     -q -O /tmp/Metaxa2_2.2.tar.gz \
   && tar -zxvf /tmp/Metaxa2_2.2.tar.gz
 WORKDIR /tmp/Metaxa2_2.2
-RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaxa2/install_metaxa2 \
-  && chmod +x install_metaxa2.1 \
-  && ./install_metaxa2.1
+RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaxa2/install_metaxa2_custom \
+  && chmod +x install_metaxa2_custom \
+  && ./install_metaxa2_custom
 WORKDIR /
 RUN rm -rf /tmp/Metaxa2_2.2.tar.gz /tmp/Metaxa2_2.2
 ENV PATH=$PATH:/root/bin
