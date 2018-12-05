@@ -56,3 +56,9 @@ RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/metaxa2/i
 WORKDIR /
 RUN rm -rf /tmp/Metaxa2_2.2.tar.gz /tmp/Metaxa2_2.2
 ENV PATH=$PATH:/root/bin
+
+# ITSx v1.0.11
+RUN wget http://microbiology.se/sw/ITSx_1.0.11.tar.gz \
+    -q -O /tmp/ITSx_1.0.11.tar.gz \
+  && tar -zxvf /tmp/ITSx_1.0.11.tar.gz -C /usr/local/bin
+ENV PATH=$PATH:/usr/local/bin/ITSx_1.0.11
