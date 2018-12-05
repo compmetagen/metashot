@@ -25,15 +25,15 @@ if ($errmsg ne "") {
 
 print "Installing Metaxa2 in $bindir...\n";
 if ($su == 1) {
-  `sudo cp -r metaxa2* $bindir`;
+  `cp -r metaxa2* $bindir`;
 } else {
   `cp -r metaxa2* $bindir`;
 }
 
 print "Preparing for Usearch support...\n";
 if ($su == 1) {
-  `sudo fastacmd -D 1 -d $bindir/metaxa2_db/SSU/blast -o $bindir/metaxa2_db/SSU/blast.fasta`;
-  `sudo fastacmd -D 1 -d $bindir/metaxa2_db/LSU/blast -o $bindir/metaxa2_db/LSU/blast.fasta`;
+  `fastacmd -D 1 -d $bindir/metaxa2_db/SSU/blast -o $bindir/metaxa2_db/SSU/blast.fasta`;
+  `fastacmd -D 1 -d $bindir/metaxa2_db/LSU/blast -o $bindir/metaxa2_db/LSU/blast.fasta`;
 } else {
   `fastacmd -D 1 -d $bindir/metaxa2_db/SSU/blast -o $bindir/metaxa2_db/SSU/blast.fasta`;
   `fastacmd -D 1 -d $bindir/metaxa2_db/LSU/blast -o $bindir/metaxa2_db/LSU/blast.fasta`;
@@ -42,14 +42,14 @@ if ($su == 1) {
 
 print "Setting permissions...\n";
 if ($su == 1) {
-  `sudo chmod 755 $bindir/metaxa2`;
-  `sudo chmod 755 $bindir/metaxa2_x`;
-  `sudo chmod 755 $bindir/metaxa2_c`;
-  `sudo chmod 755 $bindir/metaxa2_ttt`;
-  `sudo chmod 755 $bindir/metaxa2_dc`;
-  `sudo chmod 755 $bindir/metaxa2_si`;
-  `sudo chmod 755 $bindir/metaxa2_rf`;
-  `sudo chmod 755 $bindir/metaxa2_uc`;
+  `chmod 755 $bindir/metaxa2`;
+  `chmod 755 $bindir/metaxa2_x`;
+  `chmod 755 $bindir/metaxa2_c`;
+  `chmod 755 $bindir/metaxa2_ttt`;
+  `chmod 755 $bindir/metaxa2_dc`;
+  `chmod 755 $bindir/metaxa2_si`;
+  `chmod 755 $bindir/metaxa2_rf`;
+  `chmod 755 $bindir/metaxa2_uc`;
 } else {
   `chmod 755 $bindir/metaxa2`;
   `chmod 755 $bindir/metaxa2_x`;
