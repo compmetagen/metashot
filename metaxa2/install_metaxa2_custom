@@ -6,9 +6,9 @@ print "-----------------\n";
 
 $homeDir = $ENV{"HOME"};
 
-$su = 0;
+$su = 1;
 
-$bindir = "$homeDir/bin/";
+$bindir = "/usr/local/bin/";
 $bindir =~ s/\~/$homeDir/;
 
 $pathWrite = 1;
