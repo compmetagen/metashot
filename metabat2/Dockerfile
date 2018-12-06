@@ -14,5 +14,6 @@ RUN wget https://bitbucket.org/berkeleylab/metabat/downloads/metabat-static-bina
   && tar -zxf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz -C /tmp
 RUN cp -r /tmp/metabat /usr/local/bin/metabat
 ENV PATH=$PATH:/usr/local/bin/metabat
-RUN chmod +rx /usr/local/bin/metabat
+RUN chmod +rx /usr/local/bin/metabat # for singularity
+RUN chmod +rx /usr/local/bin/metabat/* # for singularity
 RUN rm -rf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz /tmp/metabat
