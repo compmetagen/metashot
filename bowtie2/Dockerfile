@@ -2,7 +2,7 @@ FROM debian:stretch
 
 RUN apt-get update && apt-get install -y \
     zip \
-    wget
+    wget \
   && rm -rf /var/lib/apt/lists/*
 
 # Bowtie v2.3.4.3
