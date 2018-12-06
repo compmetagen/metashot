@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 # MetaBAT v2.12.1
 RUN wget https://bitbucket.org/berkeleylab/metabat/downloads/metabat-static-binary-linux-x64_v2.12.1.tar.gz \
     -q -O /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz \
-  && tar -zxf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz -C /usr/local/bin
+  && tar -zxf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz -C /tmp
+RUN cp -r /tmp/metabat /usr/local/bin/metabat
 ENV PATH=$PATH:/usr/local/bin/metabat
-RUN rm -rf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz
+RUN rm -rf /tmp/metabat-static-binary-linux-x64_v2.12.1.tar.gz /tmp/metabat
