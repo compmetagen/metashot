@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     wget \
     libsys-hostname-long-perl \
+    python \
   && rm -rf /var/lib/apt/lists/*
 
 # Bowtie v2.3.4.3
