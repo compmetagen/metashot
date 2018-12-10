@@ -22,11 +22,11 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
   && rm -rf /var/lib/apt/lists/*
 
-# VSEARCH v2.9.1
-RUN wget https://github.com/torognes/vsearch/archive/v2.9.1.tar.gz \
-    -q -O /tmp/v2.9.1.tar.gz \
-  && tar -zxf /tmp/v2.9.1.tar.gz -C /tmp
-WORKDIR /tmp/vsearch-2.9.1
+# VSEARCH v2.10.2
+RUN wget https://github.com/torognes/vsearch/archive/v2.10.2.tar.gz \
+    -q -O /tmp/v2.10.2.tar.gz \
+  && tar -zxf /tmp/v2.10.2.tar.gz -C /tmp
+WORKDIR /tmp/vsearch-2.10.2
 RUN ./autogen.sh && ./configure && make && make install
 WORKDIR /
-RUN rm -rf /tmp/v2.9.1.tar.gz /tmp/vsearch-2.9.1
+RUN rm -rf /tmp/v2.10.2.tar.gz /tmp/vsearch-2.10.2
