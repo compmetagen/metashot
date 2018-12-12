@@ -5,8 +5,9 @@ LABEL maintainer="Davide Albanese <davide.albanese@fmach.it>"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
+# linux-headers for limits.h
 RUN apk add --no-cache \
-    linux-headers \ # for limits.h
+    linux-headers \ 
     gcc \
     g++ \
     cmake \
