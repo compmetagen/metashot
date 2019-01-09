@@ -1,7 +1,10 @@
 FROM debian:stretch
 
-#Install pip
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 RUN apt-get update
+
 RUN apt-get install -y python3-pip
 
 RUN pip3 install EukRep
