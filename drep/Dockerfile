@@ -9,7 +9,7 @@ RUN apt-get install -y \
     zip \
     python-pip
 
-RUN python -m pip install 'setuptools >=14.0'
+RUN python -m pip install setuptools
 
 # Mash v2.1 (binaries)
 RUN wget https://github.com/marbl/Mash/releases/download/v2.1/mash-Linux64-v2.1.tar \
@@ -68,7 +68,7 @@ RUN wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_
 RUN mkdir /usr/local/share/checkm_data_2015_01_16 \
   && tar -xf /tmp/checkm_data_2015_01_16.tar.gz \
     -C /usr/local/share/checkm_data_2015_01_16
-RUN sh -c '/bin/echo -e "/usr/local/share/checkm_data_2015_01_16\n" | checkm data setRoot'
+RUN sh -c '/bin/echo -e "/usr/local/share/checkm_data_2015_01_16\n\n" | checkm data setRoot'
 
 # ANIcalculator (aka gANI) v1
 RUN wget https://ani.jgi-psf.org/download_files/ANIcalculator_v1.tgz \
