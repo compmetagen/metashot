@@ -63,12 +63,6 @@ WORKDIR /
 # CheckM 1.0.12
 RUN pip install numpy \
   && pip install 'checkm-genome ==1.0.12'
-RUN wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_16.tar.gz \
-    -q -O /tmp/checkm_data_2015_01_16.tar.gz
-RUN mkdir /usr/local/share/checkm_data_2015_01_16 \
-  && tar -xf /tmp/checkm_data_2015_01_16.tar.gz \
-    -C /usr/local/share/checkm_data_2015_01_16
-RUN sh -c '/bin/echo -e "/usr/local/share/checkm_data_2015_01_16\n\n" | checkm data setRoot'
 
 # ANIcalculator (aka gANI) v1
 RUN wget https://ani.jgi-psf.org/download_files/ANIcalculator_v1.tgz \
