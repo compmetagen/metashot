@@ -1,0 +1,7 @@
+#!/usr/bin/env expect
+set timeout 20
+spawn checkm data setRoot
+expect "Where should CheckM store it's data?\nPlease specify a location or type 'abort' to stop trying: \n" {send "/usr/local/share/checkm_data_2015_01_16\r"}
+expect eof
+
+

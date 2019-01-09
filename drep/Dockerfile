@@ -1,5 +1,8 @@
 FROM debian:stretch
 
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 RUN apt-get update
 
 RUN apt-get install -y \
@@ -61,6 +64,9 @@ ENV PATH="/usr/local/bin/pplacer:$PATH"
 WORKDIR /
   
 # CheckM 1.0.12
+
+RUN apt-get install -y \
+    expect
 RUN pip install numpy \
   && pip install 'checkm-genome ==1.0.12'
 
