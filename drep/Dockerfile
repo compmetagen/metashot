@@ -77,7 +77,7 @@ RUN mkdir /usr/local/share/checkm_data_2015_01_16 \
 RUN wget https://raw.githubusercontent.com/compmetagen/metashot/master/drep/checkm.exp \
     -q -O /tmp/checkm.exp
 RUN chmod +x /tmp/checkm.exp
-RUN /tmp/checkm.exp
+RUN expect /tmp/checkm.exp
 
 # ANIcalculator (aka gANI) v1
 RUN wget https://ani.jgi-psf.org/download_files/ANIcalculator_v1.tgz \
