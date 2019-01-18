@@ -80,3 +80,6 @@ WORKDIR /
 RUN wget http://cegg.unige.ch/pub/newick-utils-1.6-Linux-x86_64-disabled-extra.tar.gz
 RUN tar zxvf newick-utils-1.6-Linux-x86_64-disabled-extra.tar.gz
 RUN cp /newick-utils-1.6/src/nw_* /usr/local/bin
+
+# Clean 
+RUN rm -rf /var/lib/apt/lists/*
