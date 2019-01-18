@@ -64,7 +64,6 @@ ENV PATH="/usr/local/bin/pplacer:$PATH"
 WORKDIR /
   
 # CheckM 1.0.12
-
 RUN apt-get install -y \
     expect
 RUN pip install numpy \

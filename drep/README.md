@@ -8,7 +8,7 @@ Homepage: https://drep.readthedocs.io/en/latest/index.html
 
   * drep v2.2.3
   * ANIcalculator (aka gANI) v1
-  * CheckM 1.0.12 (with data 2015_01_16)
+  * CheckM v1.0.12 (with data 2015_01_16)
   * pplacer v2.1
   * HMMER v3.2.1
   * Prodigal v2.6.3

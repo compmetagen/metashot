@@ -1,4 +1,3 @@
-#!/usr/local/expect -f
 set timeout 30
 spawn checkm data setRoot
 expect "Where should CheckM store it's data?\nPlease specify a location or type 'abort' to stop trying: \n"
