@@ -34,7 +34,7 @@ RUN make
 ENV PATH=$PATH:/trimal/source
 
 WORKDIR /busco
-RUN python3 setup.py install --user
+RUN python3 setup.py install
 ADD config.ini /busco/config/config.ini
 WORKDIR /
 
@@ -62,7 +62,7 @@ RUN git clone https://github.com/samtools/bcftools.git && \
 RUN git clone https://github.com/samtools/tabix.git && \
   cd tabix && \
   make
-  
+
 RUN git clone https://github.com/samtools/samtools.git && \
   cd samtools && \
   autoheader && \
