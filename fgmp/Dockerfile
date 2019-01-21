@@ -17,7 +17,7 @@ RUN apt-get install -y \
     cpanminus
 
 RUN git clone https://github.com/stajichlab/FGMP.git
-WORKDIR /FGMP \
+WORKDIR /FGMP
 RUN git checkout tags/v1.0.1 \
     && cpanm .
 WORKDIR /
