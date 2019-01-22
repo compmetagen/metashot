@@ -53,7 +53,7 @@ RUN cpanm Moose \
 RUN pip install "gtdbtk ==0.1.6"
 WORKDIR /usr/local/lib/python2.7/dist-packages/gtdbtk/config/
 RUN cp config_template.py config.py
-RUN sed -i 's/^GENERIC_PATH = .*/GENERIC_PATH = \"/db/\"/' config.py
+RUN sed -i "s|^GENERIC_PATH = .*|GENERIC_PATH = \"/db/\"|" config.py
 WORKDIR /
 
 # Clean 
