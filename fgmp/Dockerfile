@@ -20,7 +20,9 @@ RUN cpanm IO::All
 RUN git clone https://github.com/stajichlab/FGMP.git
 WORKDIR /FGMP
 RUN git checkout tags/v1.0.1 \
-    && cpanm .
+    && cpanm . \
+    && chmod +x /FGMP/src/fgmp.pl
+ENV PATH=$PATH:/FGMP/src/
 WORKDIR /
 
 # Clean 
