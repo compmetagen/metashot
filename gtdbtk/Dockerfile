@@ -47,7 +47,9 @@ RUN wget http://www.microbesonline.org/fasttree/FastTree \
 
 RUN cpanm Moose \
   && cpanm IPC::Run \
-  && cpanm Bundle::BioPerl
+  && cpanm Bundle::BioPerl \
+  && cpanm Bio::Perl \
+  && cpanm Bio::SeqFeature::Generic
 
 # GTDBtk v0.1.6
 RUN pip install "gtdbtk ==0.1.6"
