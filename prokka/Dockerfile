@@ -14,8 +14,10 @@ RUN apt-get install -y \
     bioperl \
     cpanminus
 
+# prokka v1.13.4
 RUN cpanm Bio::Perl
-RUN git clone https://github.com/tseemann/prokka.git /prokka
+RUN git clone https://github.com/tseemann/prokka.git /prokka \
+    && git checkout tags/v1.13.4
 ENV PATH="/prokka/bin/:$PATH"
 RUN prokka --setupdb
 
