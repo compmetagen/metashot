@@ -36,7 +36,8 @@ WORKDIR /tmp/
 RUN tar -zxvf i-adhore-3.0.01.tar.gz
 WORKDIR /tmp/i-adhore-3.0.01
 RUN mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/bin/i-adhore
-RUN make && make install
+RUN make
+RUN make install
 ENV PATH="/usr/local/bin/i-adhore/bin:$PATH"
 WORKDIR /
 
