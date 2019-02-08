@@ -13,17 +13,22 @@ RUN apt-get install -y \
     hmmer \
     exonerate \
     augustus \
+    emboss \
     git \
     cpanminus
 
 RUN cpanm IO::All
+
 RUN git clone https://github.com/stajichlab/FGMP.git
 WORKDIR /FGMP
-RUN git checkout tags/v1.0.1 \
-    && cpanm . \
-    && chmod +x /FGMP/src/fgmp.pl
+RUN cpanm . 
+## && chmod +x /FGMP/src/fgmp.pl
 ENV PATH=$PATH:/FGMP/src/
 WORKDIR /
+
+ENV FGMP="/FGMP"
+ENV FGMPTMP="/FGMPTMP"
+ENV PERL5LIB="$PERL5LIB:/FGMP/lib"
 
 # Clean 
 RUN rm -rf /tmp/* \
