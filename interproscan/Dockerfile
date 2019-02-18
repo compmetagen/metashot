@@ -8,7 +8,8 @@ RUN apt-get install -y \
     perl \
     python3 \
     default-jre \
-    libgomp1
+    libgomp1 \
+    procps
 
 # Clean 
 RUN rm -rf /var/lib/apt/lists/* /tmp/*
