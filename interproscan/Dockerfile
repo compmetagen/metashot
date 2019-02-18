@@ -7,7 +7,8 @@ RUN apt-get update
 RUN apt-get install -y \
     perl \
     python3 \
-    default-jre
+    default-jre \
+    libgomp1
 
 # Clean 
 RUN rm -rf /var/lib/apt/lists/* /tmp/*
