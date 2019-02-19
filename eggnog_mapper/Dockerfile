@@ -6,7 +6,7 @@ ENV LANG=C.UTF-8
 RUN apt-get update
 
 RUN apt-get install -y \
-    python2 \
+    python2.7 \
     python-biopython \
     wget
 
