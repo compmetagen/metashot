@@ -14,4 +14,3 @@ Run eggnog-mapper:
     eggnog_mapper python emapper.py -i /path/seq_dir/seq.fa --output /path/seq_dir/seq_out -d bact --data_dir /path/data_dir
 ```
 
-Use the `--data_dir` option.
