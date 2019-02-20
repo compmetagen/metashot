@@ -11,6 +11,6 @@ Run eggnog-mapper:
 
 ```sh
 # docker run --rm -v /path/data_dir:/path/data_dir -v /path/seq_dir:/path/seq_dir \
-    eggnog_mapper python emapper.py -i /path/seq_dir/seq.fa --output /path/seq_dir/seq_out -d bact --data_dir /path/data_dir
+    eggnog_mapper python /opt/eggnog-mapper/emapper.py -i /path/seq_dir/seq.fa --output /path/seq_dir/seq_out -d bact --data_dir /path/data_dir
 ```
 
