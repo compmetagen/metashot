@@ -14,8 +14,9 @@ RUN pip3 install \
   scipy \
   pandas \
   matplotlib \
-  python-biopython \
-  pysam matplotlib
+  biopython \
+  pysam \
+  matplotlib
 
 # Clean 
 RUN rm -rf /var/lib/apt/lists/* /tmp/*
