@@ -7,7 +7,7 @@ RUN apt-get update
 
 RUN apt-get -y install \
   bash \
-	python3 \
+	python \
 	wget
 
 WORKDIR /NGStools
