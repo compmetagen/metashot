@@ -1,15 +1,18 @@
 FROM debian:stretch
 
-RUN apt-get update && apt-get -y install \
-	bash \
-	python \
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+RUN apt-get update 
+
+RUN apt-get -y install \
+  bash \
 	python3 \
 	wget
 
 WORKDIR /NGStools
+RUN wget http://cab.spbu.ru/files/release3.13.1/SPAdes-3.13.1-Linux.tar.gz \
+  && tar -xf SPAdes-3.13.1-Linux.tar.gz
+WORKDIR /
 
-RUN wget http://cab.spbu.ru/files/release3.12.0/SPAdes-3.12.0-Linux.tar.gz \
-  && tar -xf SPAdes-3.12.0-Linux.tar.gz
-
-
-ENV PATH="/NGStools/SPAdes-3.12.0-Linux/bin:$PATH"
+ENV PATH="/NGStools/SPAdes-3.13.1-Linux/bin:$PATH"
