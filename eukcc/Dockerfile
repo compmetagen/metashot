@@ -29,6 +29,7 @@ RUN conda install -c etetoolkit -c anaconda ete3 pyqt>5
 
 # EukCC
 RUN pip3 install --upgrade pip
+RUN pip3 install EukRep
 RUN pip3 install PyQt5
 WORKDIR /tmp
 RUN git clone https://github.com/Finn-Lab/EukCC
