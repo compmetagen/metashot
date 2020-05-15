@@ -1,20 +1,24 @@
-FROM debian:stretch
+FROM debian:10.2
 
-ENV MEGAHIT_DIR /megahit
-ENV MEGAHIT_TAR https://github.com/voutcn/megahit/archive/v1.1.3.tar.gz
+ENV LANG=C.UTF-8
 
-RUN apt-get update && apt-get install -y \
-    zlib1g-dev \
-    python \
-    g++ \
-    wget \
-    bc \
-    make
+ENV VERSION=1.2.9
 
-RUN mkdir ${MEGAHIT_DIR} \
-    && cd ${MEGAHIT_DIR} \
-    && wget --no-check-certificate ${MEGAHIT_TAR} --output-document - |\
-    tar xzf - --directory . --strip-components=1 \
-    && make
+RUN apt-get update
 
-ENV PATH=$PATH:${MEGAHIT_DIR}
+RUN apt-get -y install \
+  curl \
+  python \
+  bzip2 \
+  gzip \
+  libgomp1
+
+RUN mkdir -p /usr/local/megahit
+WORKDIR /usr/local/megahit
+RUN curl -s -L https://github.com/voutcn/megahit/releases/download/v${VERSION}/MEGAHIT-${VERSION}-Linux-x86_64-static.tar.gz | \
+    tar -zxf - --strip-components=1
+WORKDIR /
+ENV PATH="/usr/local/megahit/bin:${PATH}"
+
+RUN rm -rf /tmp/* \
+  && rm -rf /var/lib/apt/lists/*

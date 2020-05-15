@@ -1,18 +1,22 @@
-FROM debian:stretch
+FROM debian:10.2
 
-ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt-get update 
+ENV VERSION=3.14.0
+
+RUN apt-get update
 
 RUN apt-get -y install \
   bash \
-	python \
-	wget
+	curl \
+  python
 
-WORKDIR /NGStools
-RUN wget http://cab.spbu.ru/files/release3.13.1/SPAdes-3.13.1-Linux.tar.gz \
-  && tar -xf SPAdes-3.13.1-Linux.tar.gz
+RUN mkdir -p /usr/local/spades
+WORKDIR /usr/local/spades
+RUN curl -s http://cab.spbu.ru/files/release${VERSION}/SPAdes-${VERSION}-Linux.tar.gz | \
+    tar -zxf - --strip-components=1
 WORKDIR /
+ENV PATH="/usr/local/spades/bin:${PATH}"
 
-ENV PATH="/NGStools/SPAdes-3.13.1-Linux/bin:$PATH"
+RUN rm -rf /tmp/* \
+  && rm -rf /var/lib/apt/lists/*

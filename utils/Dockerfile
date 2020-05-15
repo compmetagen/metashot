@@ -1,13 +1,24 @@
-FROM debian:stretch
+FROM debian:10.2
 
-ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 RUN apt-get update
 
-RUN apt-get install -y \
-    python3 \
-    python3-pip
+RUN apt-get -y install \
+  curl \
+  wget \
+  bzip2 \
+  gzip \
+  python3 \
+  python3-pip \
+  build-essential
+
+# for pysam
+RUN apt-get -y install \
+  libbz2-dev \
+  zlib1g-dev \
+  liblzma-dev
+RUN pip3 install Cython
 
 RUN pip3 install \
   numpy \
@@ -18,5 +29,5 @@ RUN pip3 install \
   pysam \
   matplotlib
 
-# Clean 
-RUN rm -rf /var/lib/apt/lists/* /tmp/*
+RUN rm -rf /tmp/* \
+  && rm -rf /var/lib/apt/lists/*

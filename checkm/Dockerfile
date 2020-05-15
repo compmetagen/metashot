@@ -5,23 +5,26 @@ ENV LANG=C.UTF-8
 ENV PRODIGAL_VERSION=1:2.6.3-4
 ENV HMMER_VERSION=3.2.1+dfsg-1
 ENV PPLACER_VERSION=1.1.alpha19
-ENV FASTANI_VERSION=1.3
-ENV FASTTREE_VERSION=2.1.10-2
 
-# gtdbtk version
-ENV VERSION=1.0.2
+# checkm version
+ENV VERSION=1.1.2
+ENV VERSION_DATA=2015_01_16
 
 RUN apt-get update
 
+# pysam specific: libbz2-dev zlib1g-dev liblzma-dev bzip2 
 RUN apt-get -y install \
   curl \
   unzip \
   python3 \
   python3-pip \
   build-essential \
+  libbz2-dev \
+  zlib1g-dev \
+  liblzma-dev \
+  bzip2 \
   prodigal=${PRODIGAL_VERSION} \
-  hmmer=${HMMER_VERSION} \
-  fasttree=${FASTTREE_VERSION}
+  hmmer=${HMMER_VERSION}
 
 # install pplacer
 RUN mkdir -p /usr/local/pplacer
@@ -32,17 +35,16 @@ RUN curl -s -L https://github.com/matsen/pplacer/releases/download/v${PPLACER_VE
 WORKDIR /
 ENV PATH="/usr/local/pplacer:${PATH}"
 
-# install fastani
-RUN mkdir -p /usr/local/fastani
-WORKDIR /usr/local/fastani
-RUN curl -s -L https://github.com/ParBLiSS/FastANI/releases/download/v${FASTANI_VERSION}/fastANI-Linux64-v${FASTANI_VERSION}.zip -o fastani.zip; \
-    unzip -j fastani.zip; \
-    rm -rf fastani.zip
-WORKDIR /
-ENV PATH="/usr/local/fastani:${PATH}"
+RUN pip3 install Cython
+RUN pip3 install numpy matplotlib pysam "checkm-genome== ${VERSION}"
 
-RUN pip3 install numpy scipy matplotlib dendropy
-RUN pip3 install gtdbtk
+# download and extract the checkm data
+RUN mkdir -p /usr/local/checkm_data
+WORKDIR /usr/local/checkm_data
+RUN curl -s -L https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_${VERSION_DATA}.tar.gz | \
+  tar -zxf - --strip-components=1
+WORKDIR /
+RUN checkm data setRoot /usr/local/checkm_data
 
 RUN rm -rf /tmp/* \
   && rm -rf /var/lib/apt/lists/*
