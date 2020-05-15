@@ -1,5 +1,7 @@
 FROM debian:10.2
 
+ADD VERSION .
+
 ENV LANG=C.UTF-8
 
 ENV VERSION=2.14.2
@@ -16,6 +18,5 @@ RUN curl -s -L https://github.com/torognes/vsearch/releases/download/v${VERSION}
 WORKDIR /
 ENV PATH="/usr/local/vsearch/bin:${PATH}"
 
-# Clean 
 RUN rm -rf /tmp/* \
   && rm -rf /var/lib/apt/lists/*

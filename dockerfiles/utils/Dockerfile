@@ -1,5 +1,7 @@
 FROM debian:10.2
 
+ADD VERSION .
+
 ENV LANG=C.UTF-8
 
 RUN apt-get update
