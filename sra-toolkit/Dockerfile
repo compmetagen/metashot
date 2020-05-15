@@ -7,7 +7,8 @@ ENV VERSION=2.9.2
 RUN apt-get update
 RUN apt-get -y install \
   libxml-libxml-perl \
-  curl
+  curl \
+  tar
 
 RUN mkdir -p /usr/local/ncbi/sra-toolkit
 WORKDIR /usr/local/ncbi/sra-toolkit
