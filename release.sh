@@ -15,4 +15,6 @@ for path in dockerfiles/*; do
     docker tag $REGISTRY/$IMAGE:latest $REGISTRY/$IMAGE:$version
     docker push $USERNAME/$IMAGE:latest
     docker push $REGISTRY/$IMAGE:$version
+    docker rmi $USERNAME/$IMAGE:latest
+    docker rmi $USERNAME/$IMAGE:$version
 done
