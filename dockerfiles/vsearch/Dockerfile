@@ -9,7 +9,11 @@ ENV VERSION=2.14.2
 RUN apt-get update
 RUN apt-get install -y \
     curl \
-    tar
+    tar \
+    zlib1g-dev \
+    zlib1g \
+    libbz2-1.0 \
+    libbz2-dev
 
 RUN mkdir -p /usr/local/vsearch
 WORKDIR /usr/local/vsearch
