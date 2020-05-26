@@ -4,7 +4,7 @@ ADD VERSION .
 
 ENV LANG=C.UTF-8
 
-ENV VERSION=2.9.2
+ENV VERSION=2.10.7
 
 RUN apt-get update
 RUN apt-get -y install \
