@@ -10,7 +10,8 @@ RUN apt-get update
 RUN apt-get -y install \
   libxml-libxml-perl \
   curl \
-  tar
+  tar \
+  uuid-runtime
 
 RUN mkdir -p /usr/local/ncbi/sra-toolkit
 WORKDIR /usr/local/ncbi/sra-toolkit
@@ -18,6 +19,8 @@ RUN curl -s https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/${VERSION}/sratoolkit.${V
     tar -zxf - --strip-components=1
 WORKDIR /
 ENV PATH="/usr/local/ncbi/sra-toolkit/bin:${PATH}"
+RUN mkdir /root/.ncbi/
+RUN printf '/LIBS/GUID = "%s"\n' `uuidgen` > /root/.ncbi/user-settings.mkfg
 
 RUN rm -rf /tmp/* \
   && rm -rf /var/lib/apt/lists/*
