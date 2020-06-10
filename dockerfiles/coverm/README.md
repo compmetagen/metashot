@@ -1,7 +1,7 @@
-# checkm
+# coverm
 
-## Test
+## Help
 
 ```sh
-docker run --rm checkm checkm test ~/checkm_test_results
+docker run --rm coverm coverm
 ```
