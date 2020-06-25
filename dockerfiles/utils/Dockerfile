@@ -29,7 +29,9 @@ RUN pip3 install \
   matplotlib \
   biopython \
   pysam \
-  matplotlib
+  matplotlib \
+  scikit-learn \
+  scikit-allel
 
 RUN rm -rf /tmp/* \
   && rm -rf /var/lib/apt/lists/*
