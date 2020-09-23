@@ -3,7 +3,7 @@
 ## fasterq-dump example
 
 ```sh
-docker run --rm sra-toolkit fasterq-dump SRR11115845 --threads 2 -O /tmp
+docker run --rm sra-toolkit bash -c "init.sh; fasterq-dump SRR11115845 --threads 2 -O /tmp"
 ```
 
 For spots having 1 read, the reads are written into the *.fastq file. For spots
