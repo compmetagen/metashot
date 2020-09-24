@@ -3,5 +3,5 @@
 ## Help
 
 ```sh
-docker run --rm vsearch --help
+docker run --rm vsearch vsearch --help
 ```
