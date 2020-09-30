@@ -28,7 +28,7 @@ RUN rm -rf /tmp/*
 # install bracken
 RUN curl -s -L https://github.com/jenniferlu717/Bracken/archive/v{$BRACKEN_VERSION}.tar.gz | \
     tar -zxf - --strip-components=1
-WORKDIR src
+WORKDIR /tmp/src
 RUN make
 RUN cp /tmp/bracken /tmp/bracken-build /usr/local/bin
 WORKDIR /
