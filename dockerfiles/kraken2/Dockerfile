@@ -11,7 +11,8 @@ RUN apt-get update
 
 RUN apt-get -y install \
   curl \
-  build-essential
+  build-essential \
+  python2.7
 
 ENV KRAKEN2_DIR=/usr/local/kraken2
 
