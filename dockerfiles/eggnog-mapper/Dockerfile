@@ -1,8 +1,6 @@
-FROM debian:10.2
+FROM metashot/base:1.0
 
 ADD VERSION .
-
-ENV LANG=C.UTF-8
 
 ENV VERSION=2.0.1
 

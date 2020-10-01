@@ -1,8 +1,6 @@
-FROM debian:10.2
+FROM metashot/base:1.0
 
 ADD VERSION .
-
-ENV LANG=C.UTF-8
 
 ENV MUMMER_VERSION=3.23+dfsg-4
 ENV MASH_VERSION=2.1
