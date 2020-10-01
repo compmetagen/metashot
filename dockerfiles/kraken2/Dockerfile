@@ -18,9 +18,8 @@ RUN ln -s /usr/bin/python2.7 /usr/bin/python
 
 ENV KRAKEN2_DIR=/usr/local/kraken2
 
-WORKDIR /tmp
-
 # install kraken2
+WORKDIR /tmp
 RUN curl -s -L https://github.com/DerrickWood/kraken2/archive/v${VERSION}.tar.gz | \
     tar -zxf - --strip-components=1
 RUN mkdir -p $KRAKEN2_DIR
@@ -29,11 +28,13 @@ RUN ln -s $KRAKEN2_DIR/kraken2 $KRAKEN2_DIR/kraken2-build $KRAKEN2_DIR/kraken2-i
 RUN rm -rf /tmp/*
 
 # install bracken
+RUN mkdir /usr/local/bracken
+WORKDIR /usr/local/bracken
 RUN curl -s -L https://github.com/jenniferlu717/Bracken/archive/v{$BRACKEN_VERSION}.tar.gz | \
     tar -zxf - --strip-components=1
-WORKDIR /tmp/src
+WORKDIR /usr/local/bracken/src
 RUN make
-RUN cp /tmp/bracken /tmp/bracken-build /usr/local/bin
+ENV PATH="/usr/local/bracken:${PATH}"
 WORKDIR /
 
 # Clean 
