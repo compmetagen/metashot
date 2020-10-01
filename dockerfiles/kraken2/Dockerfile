@@ -14,6 +14,8 @@ RUN apt-get -y install \
   build-essential \
   python2.7
 
+RUN ln -s /usr/bin/python2.7 /usr/bin/python
+
 ENV KRAKEN2_DIR=/usr/local/kraken2
 
 WORKDIR /tmp
